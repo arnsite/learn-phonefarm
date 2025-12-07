@@ -1,12 +1,46 @@
 {
   "name": "phonefarm",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/main/main.js",
   "type": "module",
   "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "PhoneFarm Bot Controller - Electron wrapper for Android bot automation",
+  "build": {
+    "appId": "com.phonefarm.botcontroller",
+    "productName": "PhoneFarm Bot Controller",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "bot.js",
+      "adb.js",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "C:/adb/",
+        "to": "adb",
+        "filter": [
+          "adb.exe",
+          "*.dll"
+        ]
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    }
+  },
+  "devDependencies": {
+    "electron": "^39.2.6",
+    "electron-builder": "^26.0.12"
+  }
 }

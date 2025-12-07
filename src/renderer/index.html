@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
+    />
+    <title>PhoneFarm Bot Controller</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <header class="header">
+        <h1>PhoneFarm Bot Controller</h1>
+      </header>
+
+      <!-- Device List Section -->
+      <section class="device-section">
+        <div class="section-header">
+          <h2>Devices <span id="device-count">(0)</span></h2>
+          <button id="refresh-btn" class="btn btn-secondary">
+            <span class="btn-text">Refresh</span>
+            <span class="loading-spinner">⟳</span>
+          </button>
+        </div>
+        <div id="device-list" class="device-list">
+          <p class="no-devices">No devices detected</p>
+        </div>
+      </section>
+
+      <!-- Control Panel Section -->
+      <section class="control-panel">
+        <button id="start-stop-btn" class="btn btn-primary" disabled>
+          Start Bot
+        </button>
+        <div class="status-indicator">
+          <span>Status:</span>
+          <span id="status-dot" class="status-dot status-idle"></span>
+          <span id="status-text">Idle</span>
+        </div>
+      </section>
+
+      <!-- Log Output Section -->
+      <section class="log-section">
+        <div class="section-header">
+          <h2>Log Output</h2>
+          <button id="clear-log-btn" class="btn btn-secondary">
+            Clear Log
+          </button>
+        </div>
+        <div id="log-output" class="log-output"></div>
+      </section>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
